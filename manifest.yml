@@ -1,0 +1,13 @@
+---
+applications:
+- name: sample-spring-boot-logging
+  memory: 2G
+  instances: 1
+  buildpacks:
+      - java_buildpack_offline
+  services: 
+   - asap-elastic-apm-service
+  path: ./target/sample-spring-boot-logging-2.1.5.RELEASE.jar
+  env:
+   ELASTIC_APM_SERVICE_NAME: sample-spring-boot-logging
+   ELASTIC_APM_APPLICATION_PACKAGES: com.sample

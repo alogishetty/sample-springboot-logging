@@ -1,0 +1,9 @@
+# spring:
+#   application:
+#     name: sampleSpringBootLogging
+#   cloud:
+#     consul:
+#       host: 34.70.222.80
+#       port: 80
+#       config:
+#         enabled: true
