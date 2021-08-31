@@ -3,12 +3,13 @@
 
     <springProperty scope="context" name="applicationName" source="spring.application.name"/>
     <appender name="CLOUD_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-            <fieldNames>
+        <encoder class="co.elastic.logging.logback.EcsEncoder">
+            <serviceName>sample-spring-boot-logging</serviceName>
+            <!-- <fieldNames>
                 <timestamp>timestamp</timestamp>
                 <version>version</version>
             </fieldNames>
-            <includeMdc>true</includeMdc>
+            <includeMdc>true</includeMdc> -->
         </encoder>
     </appender>
 
@@ -20,13 +21,13 @@
         </layout>
     </appender>
 
-    <springProfile name="!cloud">
+    <springProfile name="cloud">
         <root level="info">
             <appender-ref ref="CLOUD_CONSOLE" />
         </root>
     </springProfile>
 
-    <springProfile name="cloud">
+    <springProfile name="!cloud">
         <root level="info">
             <appender-ref ref="CONSOLE" />
         </root>

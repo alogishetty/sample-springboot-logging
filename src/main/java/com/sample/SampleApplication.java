@@ -25,10 +25,10 @@ import io.micrometer.core.instrument.logging.LoggingMeterRegistry;
 @SpringBootApplication
 public class SampleApplication {
 
-	@Bean
-	LoggingMeterRegistry loggingMeterRegistry() {
-		return new LoggingMeterRegistry();// by default, it will log metrics every 1m
-	}
+	// @Bean
+	// LoggingMeterRegistry loggingMeterRegistry() {
+	// 	return new LoggingMeterRegistry();// by default, it will log metrics every 1m
+	// }
 
 	public static void main(String[] args) {
 		SpringApplication.run(SampleApplication.class, args);

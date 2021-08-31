@@ -1,13 +1,16 @@
 ---
 applications:
-- name: sample-spring-boot-logging
-  memory: 2G
+- name: monitoring-demo-wgo
+  memory: 1G
   instances: 1
+  health-check-type: http
+  health-check-http-endpoint: /actuator/health
   buildpacks:
       - java_buildpack_offline
   services: 
-   - asap-elastic-apm-service
+    - asap-elastic-apm-service
   path: ./target/sample-spring-boot-logging-2.1.5.RELEASE.jar
   env:
-   ELASTIC_APM_SERVICE_NAME: sample-spring-boot-logging
-   ELASTIC_APM_APPLICATION_PACKAGES: com.sample
+    ELASTIC_APM_SERVICE_NAME: monitoring-demo-wgo
+    ELASTIC_APM_APPLICATION_PACKAGES: com.sample
+  
